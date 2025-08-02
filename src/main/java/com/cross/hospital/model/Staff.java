@@ -5,11 +5,11 @@ import com.cross.hospital.utils.Auth;
 import java.time.LocalDate;
 
 public class Staff {
-    public static int STAFF_SERIAL = 0;
+    private static int STAFF_SERIAL = 0;
 
     private String name;
     private String id;
-    private String password;
+    private String hashedPassword;
     private Role role;
     private Dept dept;
     private LocalDate dob;
@@ -18,7 +18,7 @@ public class Staff {
     public Staff(String _name, String _password, Role _role, Dept _dept, LocalDate _dob, Integer _salary){
         this.name = _name;
         this.id = Auth.generateId("HSP",STAFF_SERIAL);
-        this.password = Auth.securePassword(_password);
+        this.hashedPassword = Auth.securePassword(_password);
         this.role = _role;
         this.dept = _dept;
         this.dob = _dob;
@@ -27,8 +27,10 @@ public class Staff {
         STAFF_SERIAL++;
     }
 
+    public String securedString(){return this.hashedPassword; }
+
     public String details(){
-        return String.format("ID : %s\nNAME : %s\nROLE : %s\nDEPARTMENT : %s\nDate OF Birth : %s\n", this.id, this.name, this.role.name(), this.dept.name(),this.dob.toString());
+        return String.format("====== STAFF DETAILS ======\nID : %s\nNAME : %s\nROLE : %s\nDEPARTMENT : %s\nDate OF Birth : %s\n", this.id, this.name, this.role.name(), this.dept.name(),this.dob.toString());
     }
 
     public String getName(){
