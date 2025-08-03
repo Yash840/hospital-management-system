@@ -97,4 +97,24 @@ public class Text {
     public static void normal(String str){
         System.out.print(str);
     }
+
+    public static void orderedList(String ...elements){
+        for(int i = 0; i < elements.length; i++){
+            System.out.println(  YELLOW_BOLD + (i+1) + ". " + elements[i] + RESET);
+        }
+    }
+
+    public static void success(String str){
+        System.out.println( GREEN_BACKGROUND_BRIGHT + WHITE_BOLD_BRIGHT + str + RESET );
+    }
+
+    public static void declare(String str){
+        System.out.println(PURPLE_BOLD + " -- " + str + RESET);
+    }
+
+    public static void unorderedList(String ...elements){
+        for (String element : elements) {
+            System.out.println(YELLOW_BOLD + "- " + element + RESET);
+        }
+    }
 }

@@ -33,6 +33,7 @@ public class Patient {
     }
 
     public String getId() { return this.id ; }
+    public String getName() { return this.name ;}
 
     private void addReceipt(Receipt r){
         if(r == null){
@@ -82,7 +83,6 @@ public class Patient {
 
     public Report getRecentReport(){
         if(this.reports.isEmpty()){
-            System.out.println("No Reports To Fetch");
             return null;
         }
 
@@ -91,7 +91,6 @@ public class Patient {
 
     public Receipt getRecentReceipt(){
         if(this.reports.isEmpty()){
-            System.out.println("No Receipts To Fetch");
             return null;
         }
 
